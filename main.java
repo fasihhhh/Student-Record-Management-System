@@ -1,7 +1,7 @@
 import java.util.*;
 
 class WholeRecordLinkedList {
-    class Node{           //each student
+    private static class Node{           //each student
         String studentName;
         int rollNumber;
         double cgpa;
@@ -107,33 +107,21 @@ class WholeRecordLinkedList {
             return;
         }
 
-        Node current = head;
+
         Node prev = head;
-        while (current!=null) { 
-                if(current.rollNumber == deletingRollnoLocal){
-                    statusCheck = true;
-                    break;
-                }
-
-                current = current.next;
-        }
-        current = head;
-        if(statusCheck){
-            while(current.rollNumber != deletingRollnoLocal){
- 
-                prev = current;    
-                current = current.next;
-
-            }
+        Node current = head.next;
+        while(current != null){
+        if(current.rollNumber == deletingRollnoLocal){
             System.out.println("Deleted :  [ "+"Name : " + current.studentName + " Roll no. : " + current.rollNumber + " Department : " + current.department + "CGPA : " + current.cgpa + "]" );
             prev.next = current.next;
+            return;
         }
-        else{
-            System.out.println("No Record for this Roll number.");
+        prev = current;
+        current = current.next;
         }
+        System.out.println("No Record found for this Roll number.");
 
 
-        
 
     }
     
@@ -205,7 +193,7 @@ public class main{
                     sc.nextLine();
                     System.out.print("Enter Name : ");
                     String studentName = sc.nextLine();
-                    // sc.nextInt();
+                    // sc.nextLine();
                     int rollNumber=0;
                     while (rollNumber<1) {
                             System.out.print("Enter Roll no. ( > 0) : ");
