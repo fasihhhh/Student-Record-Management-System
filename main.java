@@ -102,7 +102,7 @@ class WholeRecordLinkedList {
         }
     
         if(head.rollNumber == deletingRollnoLocal){
-            System.out.println("Deleted :  [ "+"Name : " + head.studentName + " Roll no. : " + head.rollNumber + " Department : " + head.department + "CGPA : " + head.cgpa + "]" );
+            System.out.println("Deleted :  [ "+"Name : " + head.studentName + " | Roll no. : " + head.rollNumber + " | Department : " + head.department + " | CGPA : " + head.cgpa + "]" );
             head = head.next;
             return;
         }
@@ -112,7 +112,7 @@ class WholeRecordLinkedList {
         Node current = head.next;
         while(current != null){
         if(current.rollNumber == deletingRollnoLocal){
-            System.out.println("Deleted :  [ "+"Name : " + current.studentName + " Roll no. : " + current.rollNumber + " Department : " + current.department + "CGPA : " + current.cgpa + "]" );
+            System.out.println("Deleted :  [ "+"Name : " + current.studentName + " | Roll no. : " + current.rollNumber + " | Department : " + current.department + " | CGPA : " + current.cgpa + "]" );
             prev.next = current.next;
             return;
         }
@@ -154,8 +154,8 @@ public class main{
 
      public static void main(String[] args) {
 
-        int searchingRollNumber = 0;
-        int deletingRollno = 0;
+        // int searchingRollNumber = 0;
+        // int deletingRollno = 0;
 
             Scanner sc = new Scanner(System.in);
             WholeRecordLinkedList studentRecordList = new WholeRecordLinkedList();
@@ -219,12 +219,12 @@ public class main{
                     break;
                 case 3:
                     System.out.print("Enter Roll number to find Record : ");
-                    searchingRollNumber = sc.nextInt();
+                    int searchingRollNumber = sc.nextInt();
                     studentRecordList.searchingStudentByRollnoMethod(searchingRollNumber);
                     break;
                 case 4:
                     System.out.print("Enter Roll number to Delete Record : ");
-                    deletingRollno = sc.nextInt();
+                    int deletingRollno = sc.nextInt();
                     studentRecordList.deletingStudentByRollno(deletingRollno);
                     break;
                 case 5:
